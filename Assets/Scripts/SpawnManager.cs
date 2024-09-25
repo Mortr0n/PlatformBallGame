@@ -69,18 +69,18 @@ public class SpawnManager : MonoBehaviour
         {
             if (playerController.powerUp == null)
             {
-                int numRand = Random.Range(0, 2);
-                switch (numRand)
-                {
-                    case 0:
-                        playerController.HandlePowerUpSpawn();
-                        break;
-                    case 1:
-                        playerController.HandleBulletPowerUpSpawn();
-                        break;
-                }
-                    
-                
+                //int numRand = Random.Range(0, 2);
+                //switch (numRand)
+                //{
+                //    case 0:
+                //        playerController.HandlePowerUpSpawn();
+                //        break;
+                //    case 1:
+                //        playerController.HandleBulletPowerUpSpawn();
+                //        break;
+                //}
+
+                playerController.HandlePowerUpSpawn();
             }
             if (heavyCount % 3 == 0)
             {

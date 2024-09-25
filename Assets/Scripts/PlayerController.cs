@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,16 +11,26 @@ public class PlayerController : MonoBehaviour
     public GameObject bulletPowerUpIndicator;
     public GameObject bouncePowerUp;
     public GameObject bulletPowerUp;
+    public GameObject smashPowerUp;
     public GameObject playerPrefab;
     public GameObject bullet;
     private GameObject player;
 
 
-    private float speed = 400;
+    private float speed = 450;
     //public bool hasPowerUp = false;
+
     public string powerUp;
     private Vector3 puOffset;
-    private float pUpBounceForce =  12f;
+    private float pUpBounceForce =  25f;
+
+    private float smashUpForce = 10f;
+    private float smashUpDuration = 1f;
+    private float shockwaveRadius = 10f;
+    private float shockwaveForce = 30f;
+    private float smashDownForce = 15f;
+    private bool smashing = false;
+
     private float powerUpTime = 7f;
     private float powerUpSpawnRange = 9;
     private float pUpCountdownTime = 8;
@@ -53,16 +64,69 @@ public class PlayerController : MonoBehaviour
             killPlayer(hasFallen);
         }
 
-        // if we have the bullet power up and space is pressed fire off our bullets
-        if (Input.GetKeyDown(KeyCode.Space) && powerUp == "BulletPowerUp")
-        {          
-            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-            
-            // currently not limiting the bullets.  This is basically a clear the map power up potentially limit the rarity on this one
-            StartCoroutine(bulletWait(enemies));
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            ActivatePowerUp();
         }
-        
-        
+
+        // if we have the bullet power up and space is pressed fire off our bullets
+        //if (Input.GetKeyDown(KeyCode.Space) && powerUp == "BulletPowerUp")
+        //{          
+        //    GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+            //    // currently not limiting the bullets.  This is basically a clear the map power up potentially limit the rarity on this one
+            //    StartCoroutine(bulletWait(enemies));
+            //}
+
+    }
+
+    void ActivatePowerUp()
+    {
+        switch (powerUp)
+        {
+            case "BulletPowerUp":
+                GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                // currently not limiting the bullets.  This is basically a clear the map power up potentially limit the rarity on this one
+                StartCoroutine(bulletWait(enemies));
+                break;
+            case "SmashPowerUp":
+                StartCoroutine(SmashCoroutine());
+                break;
+        }
+    }
+
+    private IEnumerator SmashCoroutine()
+    {
+        // raise player
+        playerRB.AddForce(Vector3.up * smashUpForce, ForceMode.Impulse);
+        smashing = true;
+
+        // coroutine wait while raising
+        yield return new WaitForSeconds(smashUpDuration);
+
+        // impulse force down/y for player
+        playerRB.AddForce(Vector3.down * smashDownForce, ForceMode .Impulse);
+    }
+
+    private void TriggerShockWave()
+    {
+        // Get all nearby rigidbodies in shockwave radius
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, shockwaveRadius);
+
+        foreach (Collider hitCollider in hitColliders)
+        {
+            Rigidbody enemyRigidbody = hitCollider.GetComponent<Rigidbody>();
+
+            if (enemyRigidbody != null && hitCollider.CompareTag("Enemy"))
+            {
+                // direction from the player to the enemy
+                Vector3 direction = hitCollider.transform.position - transform.position;
+
+                // push the enemy rigidbodies out
+                enemyRigidbody.AddForce(direction.normalized * shockwaveForce, ForceMode.Impulse);
+            }
+        }
+        smashing = false;
     }
 
     IEnumerator bulletWait(GameObject[] enemies) 
@@ -80,8 +144,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 GenerateSpawnPos()
     {
         
-        float spawnPosX = Random.Range(-spawnRange, spawnRange);
-        float spawnPosZ = Random.Range(-spawnRange, spawnRange);
+        float spawnPosX = UnityEngine.Random.Range(-spawnRange, spawnRange);
+        float spawnPosZ = UnityEngine.Random.Range(-spawnRange, spawnRange);
         Vector3 randomPos = new Vector3(spawnPosX, 0, spawnPosZ);
         return randomPos;
     }
@@ -93,20 +157,20 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("BouncePowerUp"))
+        if (other.CompareTag("BouncePowerUp") || other.CompareTag("SmashPowerUp") || (other.CompareTag("BulletPowerUp")))
         {
             powerUp = other.tag;
             bouncyPUIndicator.gameObject.SetActive(true);
             Destroy(other.gameObject);
             StartCoroutine(PowerUpCountdownRoutine(powerUpTime));
         }
-        if (other.CompareTag("BulletPowerUp"))
-        {
-            powerUp = other.tag;
-            bulletPowerUpIndicator.gameObject.SetActive(true);
-            Destroy(other.gameObject);
-            StartCoroutine(PowerUpCountdownRoutine(powerUpTime));
-        }
+        //if (other.CompareTag("BulletPowerUp"))
+        //{
+        //    powerUp = other.tag;
+        //    bulletPowerUpIndicator.gameObject.SetActive(true);
+        //    Destroy(other.gameObject);
+        //    StartCoroutine(PowerUpCountdownRoutine(powerUpTime));
+        //}
     }
 
      IEnumerator PowerUpCountdownRoutine(float time)
@@ -128,6 +192,11 @@ public class PlayerController : MonoBehaviour
             Vector3 awayFromPlayer = (collision.gameObject.transform.position - playerRB.transform.position).normalized;
             
             enemyRB.AddForce(awayFromPlayer * pUpBounceForce, ForceMode.Impulse);            
+        }
+        if (smashing && collision.gameObject.CompareTag("Ground"))
+        {
+            // if that does not apply outward force then we need to add an outward force
+            TriggerShockWave();
         }
     }
 
@@ -151,6 +220,9 @@ public class PlayerController : MonoBehaviour
         GameObject[] BulletPUps = GameObject.FindGameObjectsWithTag("BulletPowerUp");
         existingPowerUps.AddRange(BulletPUps);
 
+        GameObject[] SmashPUps = GameObject.FindGameObjectsWithTag("SmashPowerUp");
+        existingPowerUps.AddRange(SmashPUps);
+
         // destroying all but one power up if there's extras
         if (existingPowerUps.Count > 1)
         {
@@ -165,7 +237,7 @@ public class PlayerController : MonoBehaviour
         {
             // pick random power up to spawn.  to change spawn percent you could add a bigger range and then make the case allow for extra num's for that power up.
             // so you could do Random.Range(0,5) and then case 0,1,2,3  and then a case 4 for a 80 percent 20 percent chance
-            int rNum = Random.Range(0, 2);
+            int rNum = UnityEngine.Random.Range(0, 5);
             switch (rNum)
             {
                 case 0:
@@ -174,7 +246,11 @@ public class PlayerController : MonoBehaviour
                 case 1:
                     SpawnPowerUpAtRandLoc("Bullet");
                     break;
-
+                case 2:
+                case 3:
+                case 4:
+                    SpawnPowerUpAtRandLoc("Smash");
+                    break;
             }
             
         }
@@ -185,7 +261,7 @@ public class PlayerController : MonoBehaviour
     void SpawnBullet(GameObject[] enemies)
     {
         // chose to send bullets at enemies at random.  It's not as random as I intended and actually just spreads the bullets evenly between them all
-        GameObject randomEnemy = enemies[Random.Range(0, enemies.Length)];
+        GameObject randomEnemy = enemies[UnityEngine.Random.Range(0, enemies.Length)];
         if (randomEnemy != null) {
             Vector3 directionToEnemy = (randomEnemy.transform.position - playerRB.transform.position).normalized;
 
@@ -208,6 +284,9 @@ public class PlayerController : MonoBehaviour
             case "Bullet":
                 Instantiate(bulletPowerUp, GenerateRandomSpawnPos(), bulletPowerUp.transform.rotation);
                 break;
+            case "Smash":
+                Instantiate(smashPowerUp, GenerateRandomSpawnPos(), smashPowerUp.transform.rotation);
+                break;
         }
         
     }
@@ -215,8 +294,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 GenerateRandomSpawnPos()
     {
         //pick a random location
-        float spawnPosX = Random.Range(-powerUpSpawnRange, powerUpSpawnRange);
-        float spawnPosZ = Random.Range(-powerUpSpawnRange, powerUpSpawnRange);
+        float spawnPosX = UnityEngine.Random.Range(-powerUpSpawnRange, powerUpSpawnRange);
+        float spawnPosZ = UnityEngine.Random.Range(-powerUpSpawnRange, powerUpSpawnRange);
         Vector3 randomPos = new Vector3(spawnPosX, 0, spawnPosZ);
         return randomPos;
     }

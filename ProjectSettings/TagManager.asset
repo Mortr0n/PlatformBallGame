@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - BulletPowerUp
   - Bullet
+  - SmashPowerUp
+  - Ground
   layers:
   - Default
   - TransparentFX
