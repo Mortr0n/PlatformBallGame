@@ -6,10 +6,13 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject enemyPrefab;
     public GameObject heavyEnemyPrefab;
+    public GameObject bossPrefab;
+
     public float spawnRange = 9;
     public int spawnWait = 3;
     private int heavyCount = 0;
     private int waveCount = 0;
+    private int bossWave = 4;
     private int spawnCount = 3;
     public int enemyCount = 0;
 
@@ -27,11 +30,18 @@ public class SpawnManager : MonoBehaviour
         if (enemyCount == 0 )
         {
             waveCount++;
-            SpawnWave(spawnCount);
+            if (waveCount != bossWave)
+            {
+                SpawnWave(spawnCount);
+            }
+            if (waveCount == bossWave)
+            {
+                SpawnBossAtRandLoc();
+            }
             if (waveCount % 3 == 0)
             {
                 spawnCount++;
-            }   
+            }
         }
     }
 
@@ -52,6 +62,11 @@ public class SpawnManager : MonoBehaviour
     void SpawnHeavyEnemyAtRandLoc()
     {
         Instantiate(heavyEnemyPrefab, GenerateSpawnPos(), heavyEnemyPrefab.transform.rotation);
+    }
+
+    void SpawnBossAtRandLoc()
+    {
+        Instantiate(bossPrefab, GenerateSpawnPos(), bossPrefab.transform.rotation);
     }
 
     private Vector3 GenerateSpawnPos()
