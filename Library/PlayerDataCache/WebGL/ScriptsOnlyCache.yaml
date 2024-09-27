@@ -1,19 +1,59 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - Boss
     - BulletScript
-    - DestroyOnCollision
     - Enemy
+    - GameManager
     - PlayerController
     - RotateCamera
     - SpawnManager
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
+    Unity.TextMeshPro:
+    - TMPro.TMP_FontAsset
+    - TMPro.TMP_Settings
+    - TMPro.TMP_SpriteAsset
+    - TMPro.TMP_StyleSheet
+    Unity.TextMeshPro.dll:
+    - TMPro.TMP_FontAsset
+    - TMPro.TextMeshProUGUI
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
-  serializedClasses: {}
+    UnityEngine.UI.dll:
+    - UnityEngine.EventSystems.EventSystem
+    - UnityEngine.EventSystems.StandaloneInputModule
+    - UnityEngine.UI.CanvasScaler
+    - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.Text
+  serializedClasses:
+    Unity.TextMeshPro:
+    - TMPro.FaceInfo_Legacy
+    - TMPro.FontAssetCreationSettings
+    - TMPro.KerningTable
+    - TMPro.TMP_Character
+    - TMPro.TMP_FontFeatureTable
+    - TMPro.TMP_FontWeightPair
+    - TMPro.TMP_GlyphAdjustmentRecord
+    - TMPro.TMP_GlyphPairAdjustmentRecord
+    - TMPro.TMP_GlyphValueRecord
+    - TMPro.TMP_Sprite
+    - TMPro.TMP_SpriteCharacter
+    - TMPro.TMP_SpriteGlyph
+    - TMPro.TMP_Style
+    - TMPro.VertexGradient
+    UnityEngine.CoreModule:
+    - UnityEngine.Events.PersistentCallGroup
+    UnityEngine.TextCoreFontEngineModule:
+    - UnityEngine.TextCore.FaceInfo
+    - UnityEngine.TextCore.Glyph
+    - UnityEngine.TextCore.GlyphMetrics
+    - UnityEngine.TextCore.GlyphRect
+    UnityEngine.UI:
+    - UnityEngine.UI.FontData
+    - UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
   methodsToPreserve: []
   sceneClasses:
     Assets/Scenes/Prototype 4.unity:
@@ -35,6 +75,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
+    - Class: 49
+      Script: {instanceID: 0}
     - Class: 54
       Script: {instanceID: 0}
     - Class: 64
@@ -43,6 +85,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
     - Class: 104
@@ -50,18 +96,46 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 16738}
+      Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 18202}
+      Script: {instanceID: 17294}
     - Class: 114
-      Script: {instanceID: 20692}
+      Script: {instanceID: 17584}
     - Class: 114
-      Script: {instanceID: 21208}
+      Script: {instanceID: 17714}
     - Class: 114
-      Script: {instanceID: 21958}
+      Script: {instanceID: 17916}
     - Class: 114
-      Script: {instanceID: 25822}
+      Script: {instanceID: 18228}
+    - Class: 114
+      Script: {instanceID: 19174}
+    - Class: 114
+      Script: {instanceID: 19424}
+    - Class: 114
+      Script: {instanceID: 20114}
+    - Class: 114
+      Script: {instanceID: 20198}
+    - Class: 114
+      Script: {instanceID: 20360}
+    - Class: 114
+      Script: {instanceID: 20662}
+    - Class: 114
+      Script: {instanceID: 20720}
+    - Class: 114
+      Script: {instanceID: 20814}
+    - Class: 114
+      Script: {instanceID: 20844}
+    - Class: 114
+      Script: {instanceID: 21130}
+    - Class: 114
+      Script: {instanceID: 21238}
+    - Class: 114
+      Script: {instanceID: 21988}
+    - Class: 114
+      Script: {instanceID: 23238}
     - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
       Script: {instanceID: 0}
     - Class: 134
       Script: {instanceID: 0}
@@ -74,6 +148,12 @@ ScriptsOnlyBuild:
     - Class: 198
       Script: {instanceID: 0}
     - Class: 199
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -88,12 +168,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UI
     className: Image
-  - hash:
-      serializedVersion: 2
-      Hash: 1d477aa5ec68eca57b74916f2fa87287
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: DestroyOnCollision
   - hash:
       serializedVersion: 2
       Hash: f45600bcc886206dd55a3208474aad61
@@ -178,6 +252,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UI
     className: RawImage
+  - hash:
+      serializedVersion: 2
+      Hash: 13719832f1283f3b812e73f8e55c08ae
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Boss
   - hash:
       serializedVersion: 2
       Hash: 1321993db8249e1e05e1e0492b2bbdc3
@@ -294,7 +374,7 @@ ScriptsOnlyBuild:
     className: Button
   - hash:
       serializedVersion: 2
-      Hash: 9747d87368ab341951cc9117baeee2fa
+      Hash: 95e1ded4e401db3a7b142a5d8750d0f6
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: PlayerController
@@ -600,6 +680,12 @@ ScriptsOnlyBuild:
     className: TMP_FontAsset
   - hash:
       serializedVersion: 2
+      Hash: 0bc29ae9a2215e06b752303ee9fca3bb
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: BulletScript
+  - hash:
+      serializedVersion: 2
       Hash: d82086405f46de14829f6b4bcbdd8fc9
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
@@ -642,7 +728,7 @@ ScriptsOnlyBuild:
     className: CanvasScaler
   - hash:
       serializedVersion: 2
-      Hash: b2620af9748366d01bf5eb2dcc33d99f
+      Hash: ba6087df7ec0373e38ef4be4ca4ff8a1
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: SpawnManager
@@ -664,6 +750,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro
     namespaceName: TMPro
     className: TextMeshProUGUI
+  - hash:
+      serializedVersion: 2
+      Hash: 8d039e73fe7045209552cdd741f1f06c
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: GameManager
   - hash:
       serializedVersion: 2
       Hash: da5a949a0bbd2ff91bc51c5805c2c41f
@@ -708,7 +800,7 @@ ScriptsOnlyBuild:
     className: BeforeAfterTestCommandState
   - hash:
       serializedVersion: 2
-      Hash: 62813e654a90f7910c0ad590d86ca5da
+      Hash: 65d34ed6bb32c45b59a87c517583b185
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Enemy
@@ -928,12 +1020,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: 0bc29ae9a2215e06b752303ee9fca3bb
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: BulletScript
   platform: 20
   scenePathNames:
   - Assets/Scenes/Prototype 4.unity

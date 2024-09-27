@@ -10,7 +10,8 @@ public class Enemy : MonoBehaviour
     private GameObject player;
     private int enemyScore = 0;
     public GameObject playerObject;
-
+    public AudioSource enemyAudio;
+    public AudioClip enemyDie;
 
     // Start is called before the first frame update
     void Start()
@@ -27,15 +28,23 @@ public class Enemy : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         
         if (player != null) {
-            Vector3 moveDirection = (player.transform.position - transform.position);
-            enemyRB.AddForce(moveDirection.normalized * speed * Time.deltaTime);
+            Vector3 moveDirection = (player.transform.position - transform.position).normalized;
+            enemyRB.AddForce(moveDirection * speed * Time.deltaTime);
              
         }
         if (transform.position.y <= -10)
         {
-            enemyScore = 1; // set up here to change score based on enemy type maybe!
+            enemyAudio.PlayOneShot(enemyDie, 1f);
+            enemyScore = GameManager.Instance.GetScore(); // set up here to change score based on enemy type maybe!
             Destroy(gameObject);
         }
+    }
+
+    public void AddScore(int score)
+    {
+        GameManager.Instance.AddScore(score);
+        enemyScore = GameManager.Instance.GetScore();
+        //enemyScore += score;
     }
 
     private void OnDestroy()

@@ -12,7 +12,7 @@ public class SpawnManager : MonoBehaviour
     public int spawnWait = 3;
     private int heavyCount = 0;
     private int waveCount = 0;
-    private int bossWave = 4;
+    private int bossWave = 10;
     private int spawnCount = 3;
     public int enemyCount = 0;
 
@@ -61,7 +61,7 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnHeavyEnemyAtRandLoc()
     {
-        Instantiate(heavyEnemyPrefab, GenerateSpawnPos(), heavyEnemyPrefab.transform.rotation);
+        Instantiate(heavyEnemyPrefab, GenerateSpawnPos(), heavyEnemyPrefab.transform.rotation); 
     }
 
     void SpawnBossAtRandLoc()
@@ -82,31 +82,35 @@ public class SpawnManager : MonoBehaviour
         PlayerController playerController = FindAnyObjectByType<PlayerController>();
         for (int i = 0; i < amount; i++)
         {
-            if (playerController.powerUp == null)
+            if (playerController != null)
             {
-                //int numRand = Random.Range(0, 2);
-                //switch (numRand)
-                //{
-                //    case 0:
-                //        playerController.HandlePowerUpSpawn();
-                //        break;
-                //    case 1:
-                //        playerController.HandleBulletPowerUpSpawn();
-                //        break;
-                //}
+                if (playerController.powerUp == null)
+                {
+                    //int numRand = Random.Range(0, 2);
+                    //switch (numRand)
+                    //{
+                    //    case 0:
+                    //        playerController.HandlePowerUpSpawn();
+                    //        break;
+                    //    case 1:
+                    //        playerController.HandleBulletPowerUpSpawn();
+                    //        break;
+                    //}
 
-                playerController.HandlePowerUpSpawn();
+                    playerController.HandlePowerUpSpawn();
+                }
+                if (heavyCount % 3 == 0)
+                {
+                    heavyCount++;
+                    SpawnHeavyEnemyAtRandLoc();
+                }
+                else
+                {
+                    heavyCount++;
+                    SpawnEnemyAtRandLoc();
+                }
             }
-            if (heavyCount % 3 == 0)
-            {
-                heavyCount++;
-                SpawnHeavyEnemyAtRandLoc();
-            } 
-            else
-            {
-                heavyCount++;
-                SpawnEnemyAtRandLoc();
-            }
+            
             
         }
     }

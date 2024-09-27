@@ -15,6 +15,16 @@ public class PlayerController : MonoBehaviour
     public GameObject playerPrefab;
     public GameObject bullet;
     private GameObject player;
+    public GameManager gameManager;
+
+    public AudioSource playerAudio;
+    public AudioSource oneShotAudio;
+
+    public AudioClip enemyCrash;
+    public AudioClip bossCrash;
+    public AudioClip superSmash;
+    public AudioClip collectPowerUp;
+    public AudioClip playerDeathSound;
 
 
     private float speed = 450;
@@ -61,6 +71,8 @@ public class PlayerController : MonoBehaviour
         // if player falls below -5y call kill func
         if (transform.position.y <-5)
         {
+
+            oneShotAudio.PlayOneShot(playerDeathSound, 1.5f);
             killPlayer(hasFallen);
         }
 
@@ -72,7 +84,7 @@ public class PlayerController : MonoBehaviour
         // if we have the bullet power up and space is pressed fire off our bullets
         //if (Input.GetKeyDown(KeyCode.Space) && powerUp == "BulletPowerUp")
         //{          
-        //    GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        //    GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy"); 
 
             //    // currently not limiting the bullets.  This is basically a clear the map power up potentially limit the rarity on this one
             //    StartCoroutine(bulletWait(enemies));
@@ -112,7 +124,7 @@ public class PlayerController : MonoBehaviour
     {
         // Get all nearby rigidbodies in shockwave radius
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, shockwaveRadius);
-
+        playerAudio.PlayOneShot(superSmash, 1f);
         foreach (Collider hitCollider in hitColliders)
         {
             Rigidbody enemyRigidbody = hitCollider.GetComponent<Rigidbody>();
@@ -159,11 +171,13 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("BouncePowerUp") || other.CompareTag("SmashPowerUp") || (other.CompareTag("BulletPowerUp")))
         {
+            playerAudio.PlayOneShot(collectPowerUp, 1f);
             powerUp = other.tag;
             bouncyPUIndicator.gameObject.SetActive(true);
             Destroy(other.gameObject);
             StartCoroutine(PowerUpCountdownRoutine(powerUpTime));
         }
+        
         //if (other.CompareTag("BulletPowerUp"))
         //{
         //    powerUp = other.tag;
@@ -184,6 +198,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            playerAudio.PlayOneShot(enemyCrash, 1f);
+        }
+        
         if (collision.gameObject.CompareTag("Enemy") && powerUp == "BouncePowerUp" )
         {
             //Debug.Log("Collided with " + collision.gameObject.name + " with powerup set to " + powerUp);
@@ -330,6 +349,7 @@ public class PlayerController : MonoBehaviour
             }
             if (hasFallen)
             {
+                //gameManager.PlayGameOverMusic();
                 Destroy(this.gameObject);
                 player = null;
             }
