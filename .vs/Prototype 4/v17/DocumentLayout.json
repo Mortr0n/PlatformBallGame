@@ -3,16 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\cmsl4\\Documents\\Create with Code\\Prototype 4\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{53F2696F-91F9-D403-3CD8-B368D375157F}|Assembly-CSharp.csproj|c:\\users\\cmsl4\\documents\\create with code\\prototype 4\\assets\\scripts\\boss.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{53F2696F-91F9-D403-3CD8-B368D375157F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\boss.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{53F2696F-91F9-D403-3CD8-B368D375157F}|Assembly-CSharp.csproj|C:\\Users\\cmsl4\\Documents\\Create with Code\\Prototype 4\\assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{53F2696F-91F9-D403-3CD8-B368D375157F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{53F2696F-91F9-D403-3CD8-B368D375157F}|Assembly-CSharp.csproj|C:\\Users\\cmsl4\\Documents\\Create with Code\\Prototype 4\\assets\\scripts\\spawnmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{53F2696F-91F9-D403-3CD8-B368D375157F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\spawnmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{53F2696F-91F9-D403-3CD8-B368D375157F}|Assembly-CSharp.csproj|C:\\Users\\cmsl4\\Documents\\Create with Code\\Prototype 4\\assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -21,6 +13,18 @@
     {
       "AbsoluteMoniker": "D:0:0:{53F2696F-91F9-D403-3CD8-B368D375157F}|Assembly-CSharp.csproj|C:\\Users\\cmsl4\\Documents\\Create with Code\\Prototype 4\\assets\\scripts\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{53F2696F-91F9-D403-3CD8-B368D375157F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53F2696F-91F9-D403-3CD8-B368D375157F}|Assembly-CSharp.csproj|c:\\users\\cmsl4\\documents\\create with code\\prototype 4\\assets\\scripts\\gamemanagerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53F2696F-91F9-D403-3CD8-B368D375157F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gamemanagerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53F2696F-91F9-D403-3CD8-B368D375157F}|Assembly-CSharp.csproj|C:\\Users\\cmsl4\\Documents\\Create with Code\\Prototype 4\\assets\\scripts\\boss.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53F2696F-91F9-D403-3CD8-B368D375157F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\boss.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53F2696F-91F9-D403-3CD8-B368D375157F}|Assembly-CSharp.csproj|C:\\Users\\cmsl4\\Documents\\Create with Code\\Prototype 4\\assets\\scripts\\spawnmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53F2696F-91F9-D403-3CD8-B368D375157F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\spawnmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{53F2696F-91F9-D403-3CD8-B368D375157F}|Assembly-CSharp.csproj|C:\\Users\\cmsl4\\Documents\\Create with Code\\Prototype 4\\assets\\scripts\\bulletscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,45 +46,58 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GameManager.cs",
-              "DocumentMoniker": "C:\\Users\\cmsl4\\Documents\\Create with Code\\Prototype 4\\Assets\\Scripts\\GameManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\GameManager.cs",
-              "ToolTip": "C:\\Users\\cmsl4\\Documents\\Create with Code\\Prototype 4\\Assets\\Scripts\\GameManager.cs*",
-              "RelativeToolTip": "Assets\\Scripts\\GameManager.cs*",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAiwBcAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "GameManagerScript.cs",
+              "DocumentMoniker": "C:\\Users\\cmsl4\\Documents\\Create with Code\\Prototype 4\\Assets\\Scripts\\GameManagerScript.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GameManagerScript.cs",
+              "ToolTip": "C:\\Users\\cmsl4\\Documents\\Create with Code\\Prototype 4\\Assets\\Scripts\\GameManagerScript.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GameManagerScript.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-27T00:40:49.348Z",
+              "WhenOpened": "2024-09-28T19:41:45.275Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Boss.cs",
-              "DocumentMoniker": "C:\\Users\\cmsl4\\Documents\\Create with Code\\Prototype 4\\Assets\\Scripts\\Boss.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Boss.cs",
-              "ToolTip": "C:\\Users\\cmsl4\\Documents\\Create with Code\\Prototype 4\\Assets\\Scripts\\Boss.cs*",
-              "RelativeToolTip": "Assets\\Scripts\\Boss.cs*",
-              "ViewState": "AgIAACUAAAAAAAAAAAAgwFIAAAAAAAAAAAAAAA==",
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "C:\\Users\\cmsl4\\Documents\\Create with Code\\Prototype 4\\Assets\\Scripts\\GameManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GameManager.cs",
+              "ToolTip": "C:\\Users\\cmsl4\\Documents\\Create with Code\\Prototype 4\\Assets\\Scripts\\GameManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GameManager.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAuwFIAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-25T01:59:29.243Z",
+              "WhenOpened": "2024-09-28T01:37:50.667Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "Boss.cs",
+              "DocumentMoniker": "C:\\Users\\cmsl4\\Documents\\Create with Code\\Prototype 4\\Assets\\Scripts\\Boss.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Boss.cs",
+              "ToolTip": "C:\\Users\\cmsl4\\Documents\\Create with Code\\Prototype 4\\Assets\\Scripts\\Boss.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Boss.cs",
+              "ViewState": "AgIAAHwAAAAAAAAAAAAcwEIAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-25T01:59:29.243Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Enemy.cs",
               "DocumentMoniker": "C:\\Users\\cmsl4\\Documents\\Create with Code\\Prototype 4\\Assets\\Scripts\\Enemy.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy.cs",
               "ToolTip": "C:\\Users\\cmsl4\\Documents\\Create with Code\\Prototype 4\\Assets\\Scripts\\Enemy.cs",
               "RelativeToolTip": "Assets\\Scripts\\Enemy.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-17T00:56:12.023Z"
+              "WhenOpened": "2024-09-17T00:56:12.023Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "BulletScript.cs",
               "DocumentMoniker": "C:\\Users\\cmsl4\\Documents\\Create with Code\\Prototype 4\\Assets\\Scripts\\BulletScript.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\BulletScript.cs",
@@ -92,31 +109,32 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "PlayerController.cs",
               "DocumentMoniker": "C:\\Users\\cmsl4\\Documents\\Create with Code\\Prototype 4\\Assets\\Scripts\\PlayerController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerController.cs",
               "ToolTip": "C:\\Users\\cmsl4\\Documents\\Create with Code\\Prototype 4\\Assets\\Scripts\\PlayerController.cs",
               "RelativeToolTip": "Assets\\Scripts\\PlayerController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAADABAAAAAAAAAAAkwE8BAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-16T00:24:26.431Z"
+              "WhenOpened": "2024-09-16T00:24:26.431Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "SpawnManager.cs",
               "DocumentMoniker": "C:\\Users\\cmsl4\\Documents\\Create with Code\\Prototype 4\\Assets\\Scripts\\SpawnManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\SpawnManager.cs",
               "ToolTip": "C:\\Users\\cmsl4\\Documents\\Create with Code\\Prototype 4\\Assets\\Scripts\\SpawnManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\SpawnManager.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAqwD8AAABgAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-17T01:05:00.603Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "RotateCamera.cs",
               "DocumentMoniker": "C:\\Users\\cmsl4\\Documents\\Create with Code\\Prototype 4\\Assets\\Scripts\\RotateCamera.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\RotateCamera.cs",

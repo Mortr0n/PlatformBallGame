@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 2917571512325325543}
   - component: {fileID: 4866936218695684532}
   - component: {fileID: 2969874331512313667}
+  - component: {fileID: -5923133108424458779}
   - component: {fileID: 4066127220373710049}
   - component: {fileID: 8370771655354910769}
   - component: {fileID: 3685106900326811482}
-  - component: {fileID: -5923133108424458779}
   - component: {fileID: -5135119882115250469}
   - component: {fileID: 6455393785001505454}
   m_Layer: 0
@@ -89,6 +89,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-5923133108424458779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4011952164581423368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa4308d19092ac64d940c3e447a5ed55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossRB: {fileID: 8370771655354910769}
+  player: {fileID: 1059818496187668761, guid: 79f4408a647d23145986840f823db0cf, type: 3}
+  bossAudio: {fileID: -5135119882115250469}
+  crash: {fileID: 6455393785001505454}
+  enemy: {fileID: 7558898911521839449, guid: 4f8537c435630734582ca3bd995eb15f, type: 3}
+  enemyController: {fileID: 0}
+  bossCrash: {fileID: 8300000, guid: 851d4af30b937e945bdd5281612e29cf, type: 3}
+  centerSafeZone: 8
+  platformRadius: 12
+  speed: 800
+  smashStart: 10
 --- !u!135 &4066127220373710049
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -151,29 +174,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1100
   playerObject: {fileID: 1059818496187668761, guid: 79f4408a647d23145986840f823db0cf, type: 3}
---- !u!114 &-5923133108424458779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4011952164581423368}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa4308d19092ac64d940c3e447a5ed55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bossRB: {fileID: 8370771655354910769}
-  player: {fileID: 1059818496187668761, guid: 79f4408a647d23145986840f823db0cf, type: 3}
-  bossAudio: {fileID: -5135119882115250469}
-  crash: {fileID: 6455393785001505454}
-  enemy: {fileID: 7558898911521839449, guid: 4f8537c435630734582ca3bd995eb15f, type: 3}
-  enemyController: {fileID: 0}
-  bossCrash: {fileID: 8300000, guid: 851d4af30b937e945bdd5281612e29cf, type: 3}
-  centerSafeZone: 8
-  platformRadius: 12
-  speed: 800
-  smashStart: 10
+  gameManager: {fileID: 7714158275162184173, guid: ccf2fc16f13c73649896dd626e028299, type: 3}
+  enemyAudio: {fileID: 0}
+  enemyDie: {fileID: 0}
 --- !u!82 &-5135119882115250469
 AudioSource:
   m_ObjectHideFlags: 0

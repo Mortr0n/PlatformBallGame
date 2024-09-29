@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody playerRB;
+
     private GameObject focalPoint;
     public GameObject bouncyPUIndicator;
     public GameObject bulletPowerUpIndicator;
@@ -14,8 +15,8 @@ public class PlayerController : MonoBehaviour
     public GameObject smashPowerUp;
     public GameObject playerPrefab;
     public GameObject bullet;
-    private GameObject player;
-    public GameManager gameManager;
+    private GameObject player; //TODO: fix at some point.  Not used but also will crash if gone 
+    public GameObject gameManager;
 
     public AudioSource playerAudio;
     public AudioSource oneShotAudio;
@@ -24,14 +25,15 @@ public class PlayerController : MonoBehaviour
     public AudioClip bossCrash;
     public AudioClip superSmash;
     public AudioClip collectPowerUp;
-    public AudioClip playerDeathSound;
 
 
     private float speed = 450;
-    //public bool hasPowerUp = false;
 
     public string powerUp;
     private Vector3 puOffset;
+    private float powerUpTime = 7f;
+    private float powerUpSpawnRange = 9;
+    private float pUpCountdownTime = 8;
     private float pUpBounceForce =  25f;
 
     private float smashUpForce = 10f;
@@ -41,10 +43,8 @@ public class PlayerController : MonoBehaviour
     private float smashDownForce = 15f;
     private bool smashing = false;
 
-    private float powerUpTime = 7f;
-    private float powerUpSpawnRange = 9;
-    private float pUpCountdownTime = 8;
-    private int score = 0;
+
+
     private int lives = 3;
     private float spawnRange = 8;
     public bool hasFallen = false;
@@ -53,8 +53,8 @@ public class PlayerController : MonoBehaviour
     {
         playerRB = GetComponent<Rigidbody>();
         focalPoint = GameObject.Find("Focal Point");
-       
-        //bouncyPUIndicator = GameObject.Find("BouncePowerUp");
+        gameManager = GameObject.Find("GameManager");
+
         puOffset = new Vector3(0, -.4f, 0);
         StartCoroutine(SpawnPowerUpCountdownRoutine(powerUpTime));
     }
@@ -62,17 +62,14 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         float forwardInput = Input.GetAxis("Vertical");
-
-        //Debug.Log("fIn: " + forwardInput + " speed " + speed + " fpt: " + focalPoint.transform.forward);
         playerRB.AddForce(forwardInput * speed * focalPoint.transform.forward * Time.deltaTime);
         bouncyPUIndicator.transform.position = transform.position + puOffset;
         bulletPowerUpIndicator.transform.position = transform.position + puOffset;
 
         // if player falls below -5y call kill func
         if (transform.position.y <-5)
-        {
-
-            oneShotAudio.PlayOneShot(playerDeathSound, 1.5f);
+        {          
+            //oneShotAudio.PlayOneShot(playerDeathSound, 1.5f);
             killPlayer(hasFallen);
         }
 
@@ -80,16 +77,6 @@ public class PlayerController : MonoBehaviour
         {
             ActivatePowerUp();
         }
-
-        // if we have the bullet power up and space is pressed fire off our bullets
-        //if (Input.GetKeyDown(KeyCode.Space) && powerUp == "BulletPowerUp")
-        //{          
-        //    GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy"); 
-
-            //    // currently not limiting the bullets.  This is basically a clear the map power up potentially limit the rarity on this one
-            //    StartCoroutine(bulletWait(enemies));
-            //}
-
     }
 
     void ActivatePowerUp()
@@ -98,7 +85,8 @@ public class PlayerController : MonoBehaviour
         {
             case "BulletPowerUp":
                 GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-                // currently not limiting the bullets.  This is basically a clear the map power up potentially limit the rarity on this one
+                // currently not limiting the bullets.  This is basically a clear the map power up potentially limit the rarity on this one 
+                // left it this way because it's kind of fun
                 StartCoroutine(bulletWait(enemies));
                 break;
             case "SmashPowerUp":
@@ -122,7 +110,8 @@ public class PlayerController : MonoBehaviour
 
     private void TriggerShockWave()
     {
-        // Get all nearby rigidbodies in shockwave radius
+        // Get all nearby rigidbodies in shockwave radius.
+        // TODO: probably should only do on a horizontal access at some point!
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, shockwaveRadius);
         playerAudio.PlayOneShot(superSmash, 1f);
         foreach (Collider hitCollider in hitColliders)
@@ -150,21 +139,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    
-
-
     private Vector3 GenerateSpawnPos()
     {
-        
         float spawnPosX = UnityEngine.Random.Range(-spawnRange, spawnRange);
         float spawnPosZ = UnityEngine.Random.Range(-spawnRange, spawnRange);
         Vector3 randomPos = new Vector3(spawnPosX, 0, spawnPosZ);
         return randomPos;
-    }
-    public void AddScore(int points)
-    {
-        score += points;
-        Debug.Log(score);
     }
 
     void OnTriggerEnter(Collider other)
@@ -178,13 +158,10 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(PowerUpCountdownRoutine(powerUpTime));
         }
         
-        //if (other.CompareTag("BulletPowerUp"))
-        //{
-        //    powerUp = other.tag;
-        //    bulletPowerUpIndicator.gameObject.SetActive(true);
-        //    Destroy(other.gameObject);
-        //    StartCoroutine(PowerUpCountdownRoutine(powerUpTime));
-        //}
+        if (other.CompareTag("SmashPowerUp") || (other.CompareTag("BulletPowerUp")))
+        {
+            GameManager.Instance.UpdateSpaceText("Press SpaceBar!");
+        }
     }
 
      IEnumerator PowerUpCountdownRoutine(float time)
@@ -192,6 +169,7 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(time);
         bouncyPUIndicator.gameObject.SetActive(false);
         bulletPowerUpIndicator.gameObject.SetActive(false);
+        GameManager.Instance.UpdateSpaceText("");
         powerUp = null;
         StartCoroutine(SpawnPowerUpCountdownRoutine(pUpCountdownTime));
     } 
@@ -327,14 +305,21 @@ public class PlayerController : MonoBehaviour
         if (transform.position.y < -5 && !hasFallen)
         {
             hasFallen = true;
+            // I'm being lazy and left the lives-- which stops the player from spawning again
+            // could base this off the GameManager which would be the smart way to do this
             lives--;
-            //Debug.Log("Lives: " + lives + " hasFallen: " + hasFallen + " gO Name: " + gameObject.name + " : " + gameObject);
-            if (lives >= 0)
+            GameManager.Instance.PlayerLostLife();
+            //GameManager gmObject = gameManager.GetComponent<GameManager>();
+            //Debug.Log(gmObject);
+            GameManager.Instance.PlayGameOverMusic();
+            if (lives > 0)
             {
+                // getting access to the player then the controller to reset values
+                // which I had trouble again doing for anything other than this.  
                 GameObject newPlayer = Instantiate(playerPrefab, GenerateSpawnPos(), transform.rotation);
                 PlayerController pController = newPlayer.GetComponent<PlayerController>();
 
-                // setting the necessary settings on the new player object
+                // resetting values after death for new player instance
                 pController.hasFallen = false;
                 pController.lives = lives;
                 pController.powerUp = null;
@@ -345,68 +330,14 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
+                // this is handled in the GameManager now
                 Debug.Log("Game Over");
             }
             if (hasFallen)
             {
-                //gameManager.PlayGameOverMusic();
                 Destroy(this.gameObject);
                 player = null;
             }
         }
     }
-
-    // not in use anymore after allowing for doing both on one func
-    //public void HandleBulletPowerUpSpawn()
-    //{
-    //    List<GameObject> existingPowerUps = new List<GameObject>();
-    //    GameObject[] BouncePUps = GameObject.FindGameObjectsWithTag("BouncePowerUp");
-    //    existingPowerUps.AddRange(BouncePUps);
-    //    GameObject[] BulletPUps = GameObject.FindGameObjectsWithTag("BulletPowerUp");
-    //    existingPowerUps.AddRange(BulletPUps);
-
-    //    if (existingPowerUps.Count > 1)
-    //    {
-    //        for (int i = 1; i < existingPowerUps.Count; i++)
-    //        {
-    //            Destroy(existingPowerUps[i]);
-    //        }
-    //    }
-    //    if (powerUp == null && existingPowerUps.Count == 0)
-    //    {
-    //        SpawnPowerUpAtRandLoc("Bullet");
-    //    }
-    //}
-
-    // not in use after making spawn bullet do everything
-    //public void FireBullet()
-    //{
-    //    GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-    //    if (enemies.Length == 0)
-    //    {
-    //        Debug.Log("No enemies to target.");
-    //        return;
-    //    }
-
-    //    GameObject randomEnemy = enemies[Random.Range(0, enemies.Length)];
-    //    GameObject bulletObject = Instantiate(bullet, playerRB.transform.position, Quaternion.identity);
-    //    if (bulletObject == null)
-    //    {
-    //        Debug.Log("Failed to instantiate bullet prefab.");
-    //        return;
-    //    }
-
-    //    BulletScript bulletScript = bulletObject.GetComponent<BulletScript>();
-    //    if (bulletScript == null)
-    //    {
-    //        Debug.LogError("BulletScript not found on bullet prefab.");
-    //        Destroy(bulletObject);  // Clean up if the necessary component is missing
-    //    }
-    //    else
-    //    {
-    //        bulletScript.SetTarget(randomEnemy.transform);
-    //        Debug.Log("Bullet spawned and target set: " + randomEnemy.name);
-    //    }
-    //}
-
 }

@@ -43,7 +43,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5328591263318029354}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: e2a16d97a866bc84cafc7abeeef0c336, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -120,7 +120,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 550
-  playerObject: {fileID: 0}
+  playerObject: {fileID: 1059818496187668761, guid: 79f4408a647d23145986840f823db0cf, type: 3}
+  gameManager: {fileID: 7714158275162184173, guid: ccf2fc16f13c73649896dd626e028299, type: 3}
+  enemyAudio: {fileID: 0}
+  enemyDie: {fileID: 8300000, guid: db0104fa8a80af14084d3e7ebe462ec0, type: 3}
 --- !u!54 &2546231373749782362
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -149,6 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 300
   playerObject: {fileID: 1059818496187668761, guid: 79f4408a647d23145986840f823db0cf, type: 3}
+  gameManager: {fileID: 7714158275162184173, guid: ccf2fc16f13c73649896dd626e028299, type: 3}
   enemyAudio: {fileID: 5513324290097589392}
   enemyDie: {fileID: 8300000, guid: db0104fa8a80af14084d3e7ebe462ec0, type: 3}
 --- !u!82 &5513324290097589392

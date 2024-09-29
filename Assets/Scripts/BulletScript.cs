@@ -10,7 +10,7 @@ public class BulletScript : MonoBehaviour
 
     public float speed = 200;
     private float timeToDestroy = 2.5f;
-    // Start is called before the first frame update
+
     public void SetTarget(Transform enemyTarget)
     {
         target = enemyTarget;
@@ -18,16 +18,13 @@ public class BulletScript : MonoBehaviour
         StartCoroutine(DestroyBulletRoutine(timeToDestroy));
     }
 
-    // Update is called once per frame
     void Update()
     {
 
         if (target != null)
         {
-
             Vector3 moveDirection = (target.position - transform.position); 
             bulletRB.AddForce(moveDirection.normalized * speed * Time.deltaTime);
-
         }
         if (transform.position.x >= 40 || transform.position.x <= -40 || transform.position.z >= 40 || transform.position.z <= -40)
         {

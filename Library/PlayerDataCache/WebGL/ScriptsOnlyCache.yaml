@@ -6,6 +6,7 @@ ScriptsOnlyBuild:
     - Enemy
     - GameManager
     - PlayerController
+    - PowerUp
     - RotateCamera
     - SpawnManager
     Unity.Rider.Editor.dll:
@@ -17,6 +18,9 @@ ScriptsOnlyBuild:
     - TMPro.TMP_StyleSheet
     Unity.TextMeshPro.dll:
     - TMPro.TMP_FontAsset
+    - TMPro.TMP_Settings
+    - TMPro.TMP_SpriteAsset
+    - TMPro.TMP_StyleSheet
     - TMPro.TextMeshProUGUI
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -25,8 +29,10 @@ ScriptsOnlyBuild:
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
+    - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.Image
     - UnityEngine.UI.Text
   serializedClasses:
     Unity.TextMeshPro:
@@ -45,16 +51,26 @@ ScriptsOnlyBuild:
     - TMPro.TMP_Style
     - TMPro.VertexGradient
     UnityEngine.CoreModule:
+    - UnityEngine.Events.ArgumentCache
     - UnityEngine.Events.PersistentCallGroup
+    - UnityEngine.Events.PersistentListenerMode
     UnityEngine.TextCoreFontEngineModule:
     - UnityEngine.TextCore.FaceInfo
     - UnityEngine.TextCore.Glyph
     - UnityEngine.TextCore.GlyphMetrics
     - UnityEngine.TextCore.GlyphRect
     UnityEngine.UI:
+    - UnityEngine.UI.AnimationTriggers
+    - UnityEngine.UI.Button/ButtonClickedEvent
+    - UnityEngine.UI.ColorBlock
     - UnityEngine.UI.FontData
     - UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
-  methodsToPreserve: []
+    - UnityEngine.UI.Navigation
+    - UnityEngine.UI.SpriteState
+  methodsToPreserve:
+  - assembly: Assembly-CSharp
+    fullTypeName: GameManager
+    methodName: RestartGame
   sceneClasses:
     Assets/Scenes/Prototype 4.unity:
     - Class: 1
@@ -96,7 +112,7 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 0}
+      Script: {instanceID: 16714}
     - Class: 114
       Script: {instanceID: 17294}
     - Class: 114
@@ -106,33 +122,37 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 17916}
     - Class: 114
+      Script: {instanceID: 18204}
+    - Class: 114
       Script: {instanceID: 18228}
     - Class: 114
-      Script: {instanceID: 19174}
+      Script: {instanceID: 19058}
     - Class: 114
-      Script: {instanceID: 19424}
+      Script: {instanceID: 19176}
     - Class: 114
-      Script: {instanceID: 20114}
+      Script: {instanceID: 19426}
     - Class: 114
-      Script: {instanceID: 20198}
+      Script: {instanceID: 20116}
     - Class: 114
-      Script: {instanceID: 20360}
+      Script: {instanceID: 20200}
     - Class: 114
-      Script: {instanceID: 20662}
+      Script: {instanceID: 20362}
     - Class: 114
-      Script: {instanceID: 20720}
+      Script: {instanceID: 20664}
     - Class: 114
-      Script: {instanceID: 20814}
+      Script: {instanceID: 20722}
     - Class: 114
-      Script: {instanceID: 20844}
+      Script: {instanceID: 20816}
     - Class: 114
-      Script: {instanceID: 21130}
+      Script: {instanceID: 20846}
     - Class: 114
-      Script: {instanceID: 21238}
+      Script: {instanceID: 21132}
     - Class: 114
-      Script: {instanceID: 21988}
+      Script: {instanceID: 21240}
     - Class: 114
-      Script: {instanceID: 23238}
+      Script: {instanceID: 21990}
+    - Class: 114
+      Script: {instanceID: 26670}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -148,6 +168,8 @@ ScriptsOnlyBuild:
     - Class: 198
       Script: {instanceID: 0}
     - Class: 199
+      Script: {instanceID: 0}
+    - Class: 213
       Script: {instanceID: 0}
     - Class: 222
       Script: {instanceID: 0}
@@ -254,7 +276,7 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
-      Hash: 13719832f1283f3b812e73f8e55c08ae
+      Hash: 332f4288ead3f27f28b103709d066f7e
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Boss
@@ -374,7 +396,7 @@ ScriptsOnlyBuild:
     className: Button
   - hash:
       serializedVersion: 2
-      Hash: 95e1ded4e401db3a7b142a5d8750d0f6
+      Hash: 5cf3364d6082da5519a5348b6f1a938f
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: PlayerController
@@ -492,6 +514,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UI
     className: Mask
+  - hash:
+      serializedVersion: 2
+      Hash: 6d91a97f18c4b5f6fcddeed7328253ff
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: PowerUp
   - hash:
       serializedVersion: 2
       Hash: 4718916586b3818eb69bf65df61f0f3a
@@ -752,7 +780,7 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
-      Hash: 8d039e73fe7045209552cdd741f1f06c
+      Hash: 3e3c6db9984b17bfd1ecb9e350c18e39
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: GameManager
@@ -800,7 +828,7 @@ ScriptsOnlyBuild:
     className: BeforeAfterTestCommandState
   - hash:
       serializedVersion: 2
-      Hash: 65d34ed6bb32c45b59a87c517583b185
+      Hash: df43e6e2a0af2c55999dba3afdc560ce
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Enemy

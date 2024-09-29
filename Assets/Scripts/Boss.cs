@@ -6,11 +6,11 @@ public class Boss : MonoBehaviour
 {
     public Rigidbody bossRB;
     public GameObject player;
-    public AudioSource bossAudio;
-    public AudioSource crash;
-
     public GameObject enemy;
     public Enemy enemyController;
+
+    public AudioSource bossAudio;
+    public AudioSource crash;
     public AudioClip bossCrash;
 
     public float centerSafeZone = 8f;
@@ -25,7 +25,7 @@ public class Boss : MonoBehaviour
     private float shockwaveForce = 60f;
     private float smashDownForce = 50f;
     private bool smashing = false;
-    // Start is called before the first frame update
+
     void Start()
     {
         StartCoroutine(SmashStart());   
@@ -64,7 +64,7 @@ public class Boss : MonoBehaviour
             if (distanceFromCenter > centerSafeZone)
             {
                 Debug.Log("saving self");
-                bossRB.AddForce((Vector3.zero - transform.position) * speed * 1.8f * Time.deltaTime);
+                bossRB.AddForce((Vector3.zero - transform.position) * speed * 1.5f * Time.deltaTime);
             }
             else // if (distanceFromCenter < centerSafeZone)
             {
@@ -76,16 +76,14 @@ public class Boss : MonoBehaviour
         }
         if (transform.position.y <= -10)
         {
-            //GameObject enemy = GameObject.FindGameObjectWithTag("Enemy");
-            //Enemy enemyController = enemy.GetComponent<Enemy>();
             if (GameManager.Instance != null)
             {
-                GameManager.Instance.AddScore(5);
+                GameManager.Instance.AddScore(50); // Good luck...
                 GameManager.Instance.PlayBackgroundMusic();
             }
             if (bossAudio != null)
             {
-                bossAudio.Stop();  // Stop the boss music
+                bossAudio.Stop();  
             }
             Destroy(gameObject);
         }
@@ -101,7 +99,7 @@ public class Boss : MonoBehaviour
         float angleToPlayer = Vector3.Angle(toCenter, toPlayer);
 
         // Only return true if player is roughly between the boss and the center
-        return angleToPlayer < 90f; // You can adjust the threshold
+        return angleToPlayer < 90f; // adjust the threshold if needed
     }
 
     private IEnumerator SmashStart()
@@ -129,7 +127,6 @@ public class Boss : MonoBehaviour
         crash.PlayOneShot(bossCrash, 1f);
         if (smashing && collision.gameObject.CompareTag("Ground"))
         {
-            // if that does not apply outward force then we need to add an outward force
             TriggerShockWave();
         }
     }

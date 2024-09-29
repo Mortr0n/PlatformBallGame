@@ -16,14 +16,11 @@ public class SpawnManager : MonoBehaviour
     private int spawnCount = 3;
     public int enemyCount = 0;
 
-    // Start is called before the first frame update
     void Start()
     {
         SpawnEnemyAtRandLoc();
-        //StartCoroutine(NewWaveTimer(spawnWait));
     }
 
-    // Update is called once per frame
     void Update()
     { 
         enemyCount = FindObjectsOfType<Enemy>().Length;
@@ -36,6 +33,8 @@ public class SpawnManager : MonoBehaviour
             }
             if (waveCount == bossWave)
             {
+                Debug.Log("Wave Count: " + waveCount + "equals?? = " + (waveCount == bossWave));
+
                 SpawnBossAtRandLoc();
             }
             if (waveCount % 3 == 0)
@@ -50,8 +49,6 @@ public class SpawnManager : MonoBehaviour
         yield return new WaitForSeconds(time);
         Debug.Log(time);
         SpawnWave(spawnCount);
-        
-        //StartCoroutine(NewWaveTimer(spawnWait));
     }
 
     void SpawnEnemyAtRandLoc()
@@ -86,17 +83,6 @@ public class SpawnManager : MonoBehaviour
             {
                 if (playerController.powerUp == null)
                 {
-                    //int numRand = Random.Range(0, 2);
-                    //switch (numRand)
-                    //{
-                    //    case 0:
-                    //        playerController.HandlePowerUpSpawn();
-                    //        break;
-                    //    case 1:
-                    //        playerController.HandleBulletPowerUpSpawn();
-                    //        break;
-                    //}
-
                     playerController.HandlePowerUpSpawn();
                 }
                 if (heavyCount % 3 == 0)

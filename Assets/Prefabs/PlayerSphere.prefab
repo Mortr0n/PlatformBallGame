@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 970238570514020045}
   - component: {fileID: 8761411210053347433}
   - component: {fileID: 6971582936051217397}
+  - component: {fileID: 2884578739210247221}
   - component: {fileID: 436978388876709004}
   - component: {fileID: 7739904058142617976}
-  - component: {fileID: 2884578739210247221}
   - component: {fileID: 4595321523510056277}
   - component: {fileID: 2790872922098728700}
   m_Layer: 0
@@ -88,6 +88,34 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2884578739210247221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059818496187668761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3154c2184d46af746ad30febe331c56b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bouncyPUIndicator: {fileID: 831377645716166732, guid: 5dc5f2c44d1fbc34bace98dce3fff1d4, type: 3}
+  bulletPowerUpIndicator: {fileID: 2849541409396587784, guid: 5693242682d31e64ea57d246d2cccbae, type: 3}
+  bouncePowerUp: {fileID: 2161681510801071757, guid: 62fdb224cb1f97b4f84299198aa33c70, type: 3}
+  bulletPowerUp: {fileID: 5686704702810820804, guid: 3ee02fcbb4f856d498d68505e50b8267, type: 3}
+  smashPowerUp: {fileID: 8390788473197880414, guid: 8e7e763d581d4644d958560be00c0b98, type: 3}
+  playerPrefab: {fileID: 1059818496187668761}
+  bullet: {fileID: 3743810572955261842, guid: e0be2cc3f169e5d4f9989e36f608cd83, type: 3}
+  gameManager: {fileID: 7714158275162184173, guid: ccf2fc16f13c73649896dd626e028299, type: 3}
+  playerAudio: {fileID: 4595321523510056277}
+  oneShotAudio: {fileID: 2790872922098728700}
+  enemyCrash: {fileID: 8300000, guid: 5aa659602c49494409ec91498f460550, type: 3}
+  bossCrash: {fileID: 8300000, guid: 851d4af30b937e945bdd5281612e29cf, type: 3}
+  superSmash: {fileID: 8300000, guid: 1623c2d673c71264c8188d283767ccbd, type: 3}
+  collectPowerUp: {fileID: 8300000, guid: ca69cc3b36ff20e4bad4dca3c3306066, type: 3}
+  powerUp: 
+  hasFallen: 0
 --- !u!135 &436978388876709004
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -136,35 +164,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2884578739210247221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1059818496187668761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3154c2184d46af746ad30febe331c56b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bouncyPUIndicator: {fileID: 831377645716166732, guid: 5dc5f2c44d1fbc34bace98dce3fff1d4, type: 3}
-  bulletPowerUpIndicator: {fileID: 2849541409396587784, guid: 5693242682d31e64ea57d246d2cccbae, type: 3}
-  bouncePowerUp: {fileID: 2161681510801071757, guid: 62fdb224cb1f97b4f84299198aa33c70, type: 3}
-  bulletPowerUp: {fileID: 5686704702810820804, guid: 3ee02fcbb4f856d498d68505e50b8267, type: 3}
-  smashPowerUp: {fileID: 8390788473197880414, guid: 8e7e763d581d4644d958560be00c0b98, type: 3}
-  playerPrefab: {fileID: 1059818496187668761}
-  bullet: {fileID: 3743810572955261842, guid: e0be2cc3f169e5d4f9989e36f608cd83, type: 3}
-  gameManager: {fileID: 2099685427761026941, guid: ccf2fc16f13c73649896dd626e028299, type: 3}
-  playerAudio: {fileID: 4595321523510056277}
-  oneShotAudio: {fileID: 2790872922098728700}
-  enemyCrash: {fileID: 8300000, guid: 5aa659602c49494409ec91498f460550, type: 3}
-  bossCrash: {fileID: 8300000, guid: 851d4af30b937e945bdd5281612e29cf, type: 3}
-  superSmash: {fileID: 8300000, guid: 1623c2d673c71264c8188d283767ccbd, type: 3}
-  collectPowerUp: {fileID: 8300000, guid: ca69cc3b36ff20e4bad4dca3c3306066, type: 3}
-  playerDeathSound: {fileID: 0}
-  powerUp: 
-  hasFallen: 0
 --- !u!82 &4595321523510056277
 AudioSource:
   m_ObjectHideFlags: 0

@@ -5,23 +5,24 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float speed = 3f;
     private Rigidbody enemyRB;
-    private GameObject player;
-    private int enemyScore = 0;
     public GameObject playerObject;
+    public GameObject gameManager;
+
+    public float speed = 3f;
+    private GameObject player;
+    private int enemyScore = 1;
+
     public AudioSource enemyAudio;
     public AudioClip enemyDie;
 
-    // Start is called before the first frame update
     void Start()
     {
         enemyRB = GetComponent<Rigidbody>();
         player = GameObject.Find("PlayerSphere");
-        
+        gameManager = GameObject.Find("GameManager");
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -30,29 +31,22 @@ public class Enemy : MonoBehaviour
         if (player != null) {
             Vector3 moveDirection = (player.transform.position - transform.position).normalized;
             enemyRB.AddForce(moveDirection * speed * Time.deltaTime);
-             
         }
         if (transform.position.y <= -10)
-        {
-            enemyAudio.PlayOneShot(enemyDie, 1f);
-            enemyScore = GameManager.Instance.GetScore(); // set up here to change score based on enemy type maybe!
+        {  
+            enemyScore = GameManager.Instance.GetScore();  
+            GameManager.Instance.PlayEnemyDeath(); 
             Destroy(gameObject);
         }
     }
 
-    public void AddScore(int score)
+    IEnumerator DeathWait()
     {
-        GameManager.Instance.AddScore(score);
-        enemyScore = GameManager.Instance.GetScore();
-        //enemyScore += score;
+        yield return new WaitForSeconds(1.1f);
     }
 
     private void OnDestroy()
     {
-        if (player != null)
-        {
-            PlayerController playerObject = player.GetComponent<PlayerController>();
-            playerObject.AddScore(enemyScore);
-        }
+        GameManager.Instance.AddScore(1);   
     }
 }

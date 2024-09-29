@@ -44,18 +44,34 @@ extern void U3CDestroyBulletRoutineU3Ed__7_System_Collections_IEnumerator_Reset_
 extern void U3CDestroyBulletRoutineU3Ed__7_System_Collections_IEnumerator_get_Current_m833FA7C7EB4306B461F3AD71EC09DAEA96724DB7 (void);
 extern void Enemy_Start_m8BBD9A5AE10A27ABDFCD9168B93CD9C69D229034 (void);
 extern void Enemy_Update_m4149CFC3AC081AF0D654D9BDB6BC9B5540CE03D8 (void);
-extern void Enemy_AddScore_m0E189677E963199992740D8AA39A2AE2F5076487 (void);
+extern void Enemy_DeathWait_mE676EED8EAA5806FB0D3A34AA9A3E43857CA17FA (void);
 extern void Enemy_OnDestroy_mC2515446E98C292AFB2060269E2653B405D461E8 (void);
 extern void Enemy__ctor_mB6697627910F785A971C20C671DEFBA9D921D933 (void);
+extern void U3CDeathWaitU3Ed__10__ctor_m746FE7A135BF6C0F08169408A8AE1A049A531F69 (void);
+extern void U3CDeathWaitU3Ed__10_System_IDisposable_Dispose_m42C05A3AFA4339A96D9E1D56BAF26F95BB48EE5A (void);
+extern void U3CDeathWaitU3Ed__10_MoveNext_m8F8827E6D84E87CEC471E621A32AAFB76313B0D3 (void);
+extern void U3CDeathWaitU3Ed__10_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m5499BFFF980CF5C28A43755EFB0C6B06C9A40271 (void);
+extern void U3CDeathWaitU3Ed__10_System_Collections_IEnumerator_Reset_mE9DA734FB982F4A7A6759936F293AA7924EA0AA8 (void);
+extern void U3CDeathWaitU3Ed__10_System_Collections_IEnumerator_get_Current_m6395F91FBEFFC17803712065F7491755057B4AAD (void);
 extern void GameManager_get_Instance_m076FE4D98E785B5AEE0B4C360C7857F824E7FBD0 (void);
 extern void GameManager_set_Instance_mCFE1FA9223DC000B8D5535A9B6576264FA4405EF (void);
 extern void GameManager_Awake_m4B6E8E2AF58C95C9A2A0C4637A34AE0892CB637F (void);
+extern void GameManager_Start_m87A71D65F3171A58DBDDBFB03832ADA65643D0E2 (void);
+extern void GameManager_OnSceneLoaded_m493DEFC27D67D3152EA9FA5A7FD9EB1E2B986A36 (void);
+extern void GameManager_UpdateScoreText_mDF5C063EF1ECB11DBC95E9BFDA7701A54BD47FD2 (void);
+extern void GameManager_UpdateLivesText_mC44D12BB8703D9B79A8B9066E1DE08B6E1497B5E (void);
+extern void GameManager_UpdateSpaceText_m0C652A441C4C35E7147B8D92AE4A2529003B9062 (void);
+extern void GameManager_OnEnable_mCBA3C942196F2FE284CA416B26833E78468F635E (void);
+extern void GameManager_OnDisable_mF3CB4DACBE9C8FF46B0ED4D4E7BD71315230B968 (void);
+extern void GameManager_PlayerLostLife_m2181C0914000745323D8F758040A9CC24C961332 (void);
+extern void GameManager_GameOver_mF1BD400E7F84A0B533A58E80ADA7CCB89C964625 (void);
+extern void GameManager_RestartGame_m03813C863F1F1ABB9DC30BC371E2F088D7B01F75 (void);
 extern void GameManager_AddScore_m7F9C51FCFD3F61B8B6970D9D09D812790371B143 (void);
 extern void GameManager_GetScore_m4A83ACF2E7B547D555301AAFB07D76810A7258E1 (void);
-extern void GameManager_UpdateScoreText_mDF5C063EF1ECB11DBC95E9BFDA7701A54BD47FD2 (void);
 extern void GameManager_StopBackgroundMusic_m1FDEC9E6FECA9630C9E812B8026AE550CE7A37F4 (void);
 extern void GameManager_PlayBackgroundMusic_m8F5C81CEAF1F6D3B555CF36B7A0396311E9B410B (void);
 extern void GameManager_PlayGameOverMusic_m9F53A2D4343E0BE3CABF15557B2E8DF489E675E2 (void);
+extern void GameManager_PlayEnemyDeath_m666798F1D30A3A6FB074062AF07282CAA4EACCEF (void);
 extern void GameManager__ctor_mF453CED520617BFB65C52405A964E06CF17DB368 (void);
 extern void PlayerController_Start_m1D83076E8B136A71051F2F02545EE04947D3A8CF (void);
 extern void PlayerController_Update_m1F4051EB5BCBCCE5EEE2E3E49B7E278C3B14EC33 (void);
@@ -64,7 +80,6 @@ extern void PlayerController_SmashCoroutine_m7428F74527E1ED62FD54B32BBDCDB4A7ED6
 extern void PlayerController_TriggerShockWave_m31DE8600F7D41E63972C129539F6D76273409787 (void);
 extern void PlayerController_bulletWait_mE293E5F88EF7D25284E5129AB203314319230ECB (void);
 extern void PlayerController_GenerateSpawnPos_mDC0BD28E224DC8D048397F4C652F2342FA07D9F9 (void);
-extern void PlayerController_AddScore_m72A60EFDABE48CDD3CA01E02214C9DE853AA29D2 (void);
 extern void PlayerController_OnTriggerEnter_mF2704872AEA62333341DCBEA2831320C385701D1 (void);
 extern void PlayerController_PowerUpCountdownRoutine_mD00D9483EC1313D1D401FFA0EBB660D29D58C5B0 (void);
 extern void PlayerController_OnCollisionEnter_m2FC01282FAEE546C4408E6B901DBB3EB5A5BF989 (void);
@@ -75,30 +90,33 @@ extern void PlayerController_SpawnPowerUpAtRandLoc_m730A2B05252C5074045319453064
 extern void PlayerController_GenerateRandomSpawnPos_mAEF7ADFFA2312DE84CB9FEB4C5138FE0BB2592F7 (void);
 extern void PlayerController_killPlayer_m2B715ACE034B904F701C99E74F8BF21FEC1EE30F (void);
 extern void PlayerController__ctor_mDDAB7C7D82E1A5B3E6C197B1AB9D653DFE554F33 (void);
-extern void U3CPowerUpCountdownRoutineU3Ed__44__ctor_m92B73EA2F10050FEB470CB1FA35189A9382B6EE5 (void);
-extern void U3CPowerUpCountdownRoutineU3Ed__44_System_IDisposable_Dispose_mEF20728D3385BEF2C5E7D3F337E68E870D1ED779 (void);
-extern void U3CPowerUpCountdownRoutineU3Ed__44_MoveNext_m6161D1B3C2C133186CB5EB0BC84EAC5AE9783936 (void);
-extern void U3CPowerUpCountdownRoutineU3Ed__44_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m394FEBA7A20BE9DDB8EAB5BFAA96BA3280511826 (void);
-extern void U3CPowerUpCountdownRoutineU3Ed__44_System_Collections_IEnumerator_Reset_m244376D9DD1E3C74219E0A076ED7815F0BD263E9 (void);
-extern void U3CPowerUpCountdownRoutineU3Ed__44_System_Collections_IEnumerator_get_Current_mA7BAE227701A1625C86EA80F54EDE3F5069C2536 (void);
-extern void U3CSmashCoroutineU3Ed__38__ctor_mE2F305376F9D0762FB8F9D1B8AFADB4726D6751A (void);
-extern void U3CSmashCoroutineU3Ed__38_System_IDisposable_Dispose_m67DE6E86B222A8E9553642411CA947F15D9B21EB (void);
-extern void U3CSmashCoroutineU3Ed__38_MoveNext_m80AFEB69254B1FCE9BB054119488477819E9A558 (void);
-extern void U3CSmashCoroutineU3Ed__38_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m88ED68507EAB4BDE68E4C7ACE16EBB6964FD21B1 (void);
-extern void U3CSmashCoroutineU3Ed__38_System_Collections_IEnumerator_Reset_m438C434B8C19D03F23E41C0147AA20074963610B (void);
-extern void U3CSmashCoroutineU3Ed__38_System_Collections_IEnumerator_get_Current_mEE15949BA8A285452CFB1477A50AC7FE0E80C95B (void);
-extern void U3CSpawnPowerUpCountdownRoutineU3Ed__46__ctor_m8479B2FED0768B15B1B296FDF14838486272C7A1 (void);
-extern void U3CSpawnPowerUpCountdownRoutineU3Ed__46_System_IDisposable_Dispose_m87D956BE9E9AB4AC373D055ECBA3EB71628E24AA (void);
-extern void U3CSpawnPowerUpCountdownRoutineU3Ed__46_MoveNext_m606CA4C315CBA30DDCE294F2738B46FA84869206 (void);
-extern void U3CSpawnPowerUpCountdownRoutineU3Ed__46_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m53D368DCEE62C1B18155C7DB9A6BA44D97A6F31E (void);
-extern void U3CSpawnPowerUpCountdownRoutineU3Ed__46_System_Collections_IEnumerator_Reset_m529C095DE6BD055CF9B779C240BBE1BD8F339A3A (void);
-extern void U3CSpawnPowerUpCountdownRoutineU3Ed__46_System_Collections_IEnumerator_get_Current_m62E1EBBDF6795EB688AE79EE7B35E197830D7B5F (void);
-extern void U3CbulletWaitU3Ed__40__ctor_m74DE9129B2C37D58C9FC7E82E888FC945DAD3797 (void);
-extern void U3CbulletWaitU3Ed__40_System_IDisposable_Dispose_mBC3BACA77EA6AE0A14C998B18A3BC698DC0CC22B (void);
-extern void U3CbulletWaitU3Ed__40_MoveNext_mCC849D72A1B7B3992909CDFEE9E2F12FF173F59A (void);
-extern void U3CbulletWaitU3Ed__40_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mC4D280AD9500A045F93D702EB26AA3067BC78641 (void);
-extern void U3CbulletWaitU3Ed__40_System_Collections_IEnumerator_Reset_m28779724D0EB85A3F86D0067E9661D3B4881C66B (void);
-extern void U3CbulletWaitU3Ed__40_System_Collections_IEnumerator_get_Current_m1A312905EB599B34244A7F6A69104E3C836C429D (void);
+extern void U3CPowerUpCountdownRoutineU3Ed__41__ctor_mB1ECBACA2C03ACB60E9B007794F0393CA655923E (void);
+extern void U3CPowerUpCountdownRoutineU3Ed__41_System_IDisposable_Dispose_m067AAD5D02E923BED06F469C193789B254AF852F (void);
+extern void U3CPowerUpCountdownRoutineU3Ed__41_MoveNext_m947ED28EF4950BAFE2DBD4A8808F4640ADF11C2C (void);
+extern void U3CPowerUpCountdownRoutineU3Ed__41_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mA50194D5DEEF22F13C9F31DA4629EE35423EE6AB (void);
+extern void U3CPowerUpCountdownRoutineU3Ed__41_System_Collections_IEnumerator_Reset_m071D3648DFCF3DF291F359013645E52D94BF7E95 (void);
+extern void U3CPowerUpCountdownRoutineU3Ed__41_System_Collections_IEnumerator_get_Current_mF1CEEFD81D1E6F023216F3C097D368023885FAE4 (void);
+extern void U3CSmashCoroutineU3Ed__36__ctor_m74A502257FB10AFB64A22885A0C57028D4322364 (void);
+extern void U3CSmashCoroutineU3Ed__36_System_IDisposable_Dispose_mED91AD0DA5990DC2D58341014A47E7D871336C29 (void);
+extern void U3CSmashCoroutineU3Ed__36_MoveNext_m59E100E5B6E57052D85BE042D8071071047BD838 (void);
+extern void U3CSmashCoroutineU3Ed__36_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m0FABE55743C5EA0FC4E21D3E96DBCE87CACA158B (void);
+extern void U3CSmashCoroutineU3Ed__36_System_Collections_IEnumerator_Reset_mEBE1B7C14AD785D5DF5398BF387E7034CC7518DF (void);
+extern void U3CSmashCoroutineU3Ed__36_System_Collections_IEnumerator_get_Current_mE66FC52465C7714FC01977F70A04849C42BA3C05 (void);
+extern void U3CSpawnPowerUpCountdownRoutineU3Ed__43__ctor_m6D616381D11E84F2989BA1275B093663017ABEF8 (void);
+extern void U3CSpawnPowerUpCountdownRoutineU3Ed__43_System_IDisposable_Dispose_m8902CFAEE0CD410CCA7B1D3885ED5A7E901F3DBA (void);
+extern void U3CSpawnPowerUpCountdownRoutineU3Ed__43_MoveNext_mE5DC5CE6D1916B651E755854E49E1D6C76614554 (void);
+extern void U3CSpawnPowerUpCountdownRoutineU3Ed__43_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m26ADD24CBB2F4E1AAEEB373D2A0DD60B9BA8497D (void);
+extern void U3CSpawnPowerUpCountdownRoutineU3Ed__43_System_Collections_IEnumerator_Reset_m49114834907F77BEF4724421A622B7CCC47985AA (void);
+extern void U3CSpawnPowerUpCountdownRoutineU3Ed__43_System_Collections_IEnumerator_get_Current_m96928192910755C4A461C3C4A84E7AC8B3A22DAB (void);
+extern void U3CbulletWaitU3Ed__38__ctor_m5D15B5E3368EE3ADEA9A47E68AA82089DD8BB180 (void);
+extern void U3CbulletWaitU3Ed__38_System_IDisposable_Dispose_m84FD2551935E7861D5FC5F7F5ED97F1068270D52 (void);
+extern void U3CbulletWaitU3Ed__38_MoveNext_m42AAC4240DA43866B9D38E3AC4509D161FB4A1A0 (void);
+extern void U3CbulletWaitU3Ed__38_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mE90FFF85218718715D0A08AB82463A392AAC1639 (void);
+extern void U3CbulletWaitU3Ed__38_System_Collections_IEnumerator_Reset_m9812D1DF236983A1D72E684829D84C0F983AA6AA (void);
+extern void U3CbulletWaitU3Ed__38_System_Collections_IEnumerator_get_Current_m9ED5E2E316F764BACA2AF55C43788D1885FD85D1 (void);
+extern void PowerUp_Start_m1C4DD91946D555B139E30DD034897B141D8286DB (void);
+extern void PowerUp_Update_m803C8D79E77F9BDC008209502A77E448B2A345C6 (void);
+extern void PowerUp__ctor_m11A07324761B124C8FD32A1B98161AA3D92ABF65 (void);
 extern void RotateCamera_Start_m4810DEF7E3E6179604900A28D9156240D92C5001 (void);
 extern void RotateCamera_Update_m1312BAEDB4E83B914E9FF4E902C625B78C596A20 (void);
 extern void RotateCamera__ctor_m05430CBDE57A93B9C065D6CE0EFA55BD58891D76 (void);
@@ -119,7 +137,7 @@ extern void U3CNewWaveTimerU3Ed__12_System_Collections_IEnumerator_Reset_m9E49F8
 extern void U3CNewWaveTimerU3Ed__12_System_Collections_IEnumerator_get_Current_m51577EFD7EAF14D1BF917B7BDB8B42628AE8A0F6 (void);
 extern void UnitySourceGeneratedAssemblyMonoScriptTypes_v1_Get_mBEB95BEB954BB63E9710BBC7AD5E78C4CB0A0033 (void);
 extern void UnitySourceGeneratedAssemblyMonoScriptTypes_v1__ctor_mE70FB23ACC1EA12ABC948AA22C2E78B2D0AA39B1 (void);
-static Il2CppMethodPointer s_methodPointers[107] = 
+static Il2CppMethodPointer s_methodPointers[125] = 
 {
 	Boss_Start_mA6B8BA92DC170B01C128EE388C6D5C903A9829F9,
 	Boss_Update_m1E41F05CD2AB4872C884423060661BF3EDDAAFB8,
@@ -153,18 +171,34 @@ static Il2CppMethodPointer s_methodPointers[107] =
 	U3CDestroyBulletRoutineU3Ed__7_System_Collections_IEnumerator_get_Current_m833FA7C7EB4306B461F3AD71EC09DAEA96724DB7,
 	Enemy_Start_m8BBD9A5AE10A27ABDFCD9168B93CD9C69D229034,
 	Enemy_Update_m4149CFC3AC081AF0D654D9BDB6BC9B5540CE03D8,
-	Enemy_AddScore_m0E189677E963199992740D8AA39A2AE2F5076487,
+	Enemy_DeathWait_mE676EED8EAA5806FB0D3A34AA9A3E43857CA17FA,
 	Enemy_OnDestroy_mC2515446E98C292AFB2060269E2653B405D461E8,
 	Enemy__ctor_mB6697627910F785A971C20C671DEFBA9D921D933,
+	U3CDeathWaitU3Ed__10__ctor_m746FE7A135BF6C0F08169408A8AE1A049A531F69,
+	U3CDeathWaitU3Ed__10_System_IDisposable_Dispose_m42C05A3AFA4339A96D9E1D56BAF26F95BB48EE5A,
+	U3CDeathWaitU3Ed__10_MoveNext_m8F8827E6D84E87CEC471E621A32AAFB76313B0D3,
+	U3CDeathWaitU3Ed__10_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m5499BFFF980CF5C28A43755EFB0C6B06C9A40271,
+	U3CDeathWaitU3Ed__10_System_Collections_IEnumerator_Reset_mE9DA734FB982F4A7A6759936F293AA7924EA0AA8,
+	U3CDeathWaitU3Ed__10_System_Collections_IEnumerator_get_Current_m6395F91FBEFFC17803712065F7491755057B4AAD,
 	GameManager_get_Instance_m076FE4D98E785B5AEE0B4C360C7857F824E7FBD0,
 	GameManager_set_Instance_mCFE1FA9223DC000B8D5535A9B6576264FA4405EF,
 	GameManager_Awake_m4B6E8E2AF58C95C9A2A0C4637A34AE0892CB637F,
+	GameManager_Start_m87A71D65F3171A58DBDDBFB03832ADA65643D0E2,
+	GameManager_OnSceneLoaded_m493DEFC27D67D3152EA9FA5A7FD9EB1E2B986A36,
+	GameManager_UpdateScoreText_mDF5C063EF1ECB11DBC95E9BFDA7701A54BD47FD2,
+	GameManager_UpdateLivesText_mC44D12BB8703D9B79A8B9066E1DE08B6E1497B5E,
+	GameManager_UpdateSpaceText_m0C652A441C4C35E7147B8D92AE4A2529003B9062,
+	GameManager_OnEnable_mCBA3C942196F2FE284CA416B26833E78468F635E,
+	GameManager_OnDisable_mF3CB4DACBE9C8FF46B0ED4D4E7BD71315230B968,
+	GameManager_PlayerLostLife_m2181C0914000745323D8F758040A9CC24C961332,
+	GameManager_GameOver_mF1BD400E7F84A0B533A58E80ADA7CCB89C964625,
+	GameManager_RestartGame_m03813C863F1F1ABB9DC30BC371E2F088D7B01F75,
 	GameManager_AddScore_m7F9C51FCFD3F61B8B6970D9D09D812790371B143,
 	GameManager_GetScore_m4A83ACF2E7B547D555301AAFB07D76810A7258E1,
-	GameManager_UpdateScoreText_mDF5C063EF1ECB11DBC95E9BFDA7701A54BD47FD2,
 	GameManager_StopBackgroundMusic_m1FDEC9E6FECA9630C9E812B8026AE550CE7A37F4,
 	GameManager_PlayBackgroundMusic_m8F5C81CEAF1F6D3B555CF36B7A0396311E9B410B,
 	GameManager_PlayGameOverMusic_m9F53A2D4343E0BE3CABF15557B2E8DF489E675E2,
+	GameManager_PlayEnemyDeath_m666798F1D30A3A6FB074062AF07282CAA4EACCEF,
 	GameManager__ctor_mF453CED520617BFB65C52405A964E06CF17DB368,
 	PlayerController_Start_m1D83076E8B136A71051F2F02545EE04947D3A8CF,
 	PlayerController_Update_m1F4051EB5BCBCCE5EEE2E3E49B7E278C3B14EC33,
@@ -173,7 +207,6 @@ static Il2CppMethodPointer s_methodPointers[107] =
 	PlayerController_TriggerShockWave_m31DE8600F7D41E63972C129539F6D76273409787,
 	PlayerController_bulletWait_mE293E5F88EF7D25284E5129AB203314319230ECB,
 	PlayerController_GenerateSpawnPos_mDC0BD28E224DC8D048397F4C652F2342FA07D9F9,
-	PlayerController_AddScore_m72A60EFDABE48CDD3CA01E02214C9DE853AA29D2,
 	PlayerController_OnTriggerEnter_mF2704872AEA62333341DCBEA2831320C385701D1,
 	PlayerController_PowerUpCountdownRoutine_mD00D9483EC1313D1D401FFA0EBB660D29D58C5B0,
 	PlayerController_OnCollisionEnter_m2FC01282FAEE546C4408E6B901DBB3EB5A5BF989,
@@ -184,30 +217,33 @@ static Il2CppMethodPointer s_methodPointers[107] =
 	PlayerController_GenerateRandomSpawnPos_mAEF7ADFFA2312DE84CB9FEB4C5138FE0BB2592F7,
 	PlayerController_killPlayer_m2B715ACE034B904F701C99E74F8BF21FEC1EE30F,
 	PlayerController__ctor_mDDAB7C7D82E1A5B3E6C197B1AB9D653DFE554F33,
-	U3CPowerUpCountdownRoutineU3Ed__44__ctor_m92B73EA2F10050FEB470CB1FA35189A9382B6EE5,
-	U3CPowerUpCountdownRoutineU3Ed__44_System_IDisposable_Dispose_mEF20728D3385BEF2C5E7D3F337E68E870D1ED779,
-	U3CPowerUpCountdownRoutineU3Ed__44_MoveNext_m6161D1B3C2C133186CB5EB0BC84EAC5AE9783936,
-	U3CPowerUpCountdownRoutineU3Ed__44_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m394FEBA7A20BE9DDB8EAB5BFAA96BA3280511826,
-	U3CPowerUpCountdownRoutineU3Ed__44_System_Collections_IEnumerator_Reset_m244376D9DD1E3C74219E0A076ED7815F0BD263E9,
-	U3CPowerUpCountdownRoutineU3Ed__44_System_Collections_IEnumerator_get_Current_mA7BAE227701A1625C86EA80F54EDE3F5069C2536,
-	U3CSmashCoroutineU3Ed__38__ctor_mE2F305376F9D0762FB8F9D1B8AFADB4726D6751A,
-	U3CSmashCoroutineU3Ed__38_System_IDisposable_Dispose_m67DE6E86B222A8E9553642411CA947F15D9B21EB,
-	U3CSmashCoroutineU3Ed__38_MoveNext_m80AFEB69254B1FCE9BB054119488477819E9A558,
-	U3CSmashCoroutineU3Ed__38_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m88ED68507EAB4BDE68E4C7ACE16EBB6964FD21B1,
-	U3CSmashCoroutineU3Ed__38_System_Collections_IEnumerator_Reset_m438C434B8C19D03F23E41C0147AA20074963610B,
-	U3CSmashCoroutineU3Ed__38_System_Collections_IEnumerator_get_Current_mEE15949BA8A285452CFB1477A50AC7FE0E80C95B,
-	U3CSpawnPowerUpCountdownRoutineU3Ed__46__ctor_m8479B2FED0768B15B1B296FDF14838486272C7A1,
-	U3CSpawnPowerUpCountdownRoutineU3Ed__46_System_IDisposable_Dispose_m87D956BE9E9AB4AC373D055ECBA3EB71628E24AA,
-	U3CSpawnPowerUpCountdownRoutineU3Ed__46_MoveNext_m606CA4C315CBA30DDCE294F2738B46FA84869206,
-	U3CSpawnPowerUpCountdownRoutineU3Ed__46_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m53D368DCEE62C1B18155C7DB9A6BA44D97A6F31E,
-	U3CSpawnPowerUpCountdownRoutineU3Ed__46_System_Collections_IEnumerator_Reset_m529C095DE6BD055CF9B779C240BBE1BD8F339A3A,
-	U3CSpawnPowerUpCountdownRoutineU3Ed__46_System_Collections_IEnumerator_get_Current_m62E1EBBDF6795EB688AE79EE7B35E197830D7B5F,
-	U3CbulletWaitU3Ed__40__ctor_m74DE9129B2C37D58C9FC7E82E888FC945DAD3797,
-	U3CbulletWaitU3Ed__40_System_IDisposable_Dispose_mBC3BACA77EA6AE0A14C998B18A3BC698DC0CC22B,
-	U3CbulletWaitU3Ed__40_MoveNext_mCC849D72A1B7B3992909CDFEE9E2F12FF173F59A,
-	U3CbulletWaitU3Ed__40_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mC4D280AD9500A045F93D702EB26AA3067BC78641,
-	U3CbulletWaitU3Ed__40_System_Collections_IEnumerator_Reset_m28779724D0EB85A3F86D0067E9661D3B4881C66B,
-	U3CbulletWaitU3Ed__40_System_Collections_IEnumerator_get_Current_m1A312905EB599B34244A7F6A69104E3C836C429D,
+	U3CPowerUpCountdownRoutineU3Ed__41__ctor_mB1ECBACA2C03ACB60E9B007794F0393CA655923E,
+	U3CPowerUpCountdownRoutineU3Ed__41_System_IDisposable_Dispose_m067AAD5D02E923BED06F469C193789B254AF852F,
+	U3CPowerUpCountdownRoutineU3Ed__41_MoveNext_m947ED28EF4950BAFE2DBD4A8808F4640ADF11C2C,
+	U3CPowerUpCountdownRoutineU3Ed__41_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mA50194D5DEEF22F13C9F31DA4629EE35423EE6AB,
+	U3CPowerUpCountdownRoutineU3Ed__41_System_Collections_IEnumerator_Reset_m071D3648DFCF3DF291F359013645E52D94BF7E95,
+	U3CPowerUpCountdownRoutineU3Ed__41_System_Collections_IEnumerator_get_Current_mF1CEEFD81D1E6F023216F3C097D368023885FAE4,
+	U3CSmashCoroutineU3Ed__36__ctor_m74A502257FB10AFB64A22885A0C57028D4322364,
+	U3CSmashCoroutineU3Ed__36_System_IDisposable_Dispose_mED91AD0DA5990DC2D58341014A47E7D871336C29,
+	U3CSmashCoroutineU3Ed__36_MoveNext_m59E100E5B6E57052D85BE042D8071071047BD838,
+	U3CSmashCoroutineU3Ed__36_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m0FABE55743C5EA0FC4E21D3E96DBCE87CACA158B,
+	U3CSmashCoroutineU3Ed__36_System_Collections_IEnumerator_Reset_mEBE1B7C14AD785D5DF5398BF387E7034CC7518DF,
+	U3CSmashCoroutineU3Ed__36_System_Collections_IEnumerator_get_Current_mE66FC52465C7714FC01977F70A04849C42BA3C05,
+	U3CSpawnPowerUpCountdownRoutineU3Ed__43__ctor_m6D616381D11E84F2989BA1275B093663017ABEF8,
+	U3CSpawnPowerUpCountdownRoutineU3Ed__43_System_IDisposable_Dispose_m8902CFAEE0CD410CCA7B1D3885ED5A7E901F3DBA,
+	U3CSpawnPowerUpCountdownRoutineU3Ed__43_MoveNext_mE5DC5CE6D1916B651E755854E49E1D6C76614554,
+	U3CSpawnPowerUpCountdownRoutineU3Ed__43_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m26ADD24CBB2F4E1AAEEB373D2A0DD60B9BA8497D,
+	U3CSpawnPowerUpCountdownRoutineU3Ed__43_System_Collections_IEnumerator_Reset_m49114834907F77BEF4724421A622B7CCC47985AA,
+	U3CSpawnPowerUpCountdownRoutineU3Ed__43_System_Collections_IEnumerator_get_Current_m96928192910755C4A461C3C4A84E7AC8B3A22DAB,
+	U3CbulletWaitU3Ed__38__ctor_m5D15B5E3368EE3ADEA9A47E68AA82089DD8BB180,
+	U3CbulletWaitU3Ed__38_System_IDisposable_Dispose_m84FD2551935E7861D5FC5F7F5ED97F1068270D52,
+	U3CbulletWaitU3Ed__38_MoveNext_m42AAC4240DA43866B9D38E3AC4509D161FB4A1A0,
+	U3CbulletWaitU3Ed__38_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mE90FFF85218718715D0A08AB82463A392AAC1639,
+	U3CbulletWaitU3Ed__38_System_Collections_IEnumerator_Reset_m9812D1DF236983A1D72E684829D84C0F983AA6AA,
+	U3CbulletWaitU3Ed__38_System_Collections_IEnumerator_get_Current_m9ED5E2E316F764BACA2AF55C43788D1885FD85D1,
+	PowerUp_Start_m1C4DD91946D555B139E30DD034897B141D8286DB,
+	PowerUp_Update_m803C8D79E77F9BDC008209502A77E448B2A345C6,
+	PowerUp__ctor_m11A07324761B124C8FD32A1B98161AA3D92ABF65,
 	RotateCamera_Start_m4810DEF7E3E6179604900A28D9156240D92C5001,
 	RotateCamera_Update_m1312BAEDB4E83B914E9FF4E902C625B78C596A20,
 	RotateCamera__ctor_m05430CBDE57A93B9C065D6CE0EFA55BD58891D76,
@@ -229,121 +265,139 @@ static Il2CppMethodPointer s_methodPointers[107] =
 	UnitySourceGeneratedAssemblyMonoScriptTypes_v1_Get_mBEB95BEB954BB63E9710BBC7AD5E78C4CB0A0033,
 	UnitySourceGeneratedAssemblyMonoScriptTypes_v1__ctor_mE70FB23ACC1EA12ABC948AA22C2E78B2D0AA39B1,
 };
-static const int32_t s_InvokerIndices[107] = 
+static const int32_t s_InvokerIndices[125] = 
 {
-	4447,
-	4447,
-	4274,
-	4349,
-	4349,
-	3583,
-	4447,
-	4447,
-	3558,
-	4447,
-	4274,
-	4349,
-	4447,
-	4349,
-	3558,
-	4447,
-	4274,
-	4349,
-	4447,
-	4349,
-	3583,
-	4447,
-	3152,
-	4447,
-	3558,
-	4447,
-	4274,
-	4349,
-	4447,
-	4349,
-	4447,
-	4447,
-	3558,
-	4447,
-	4447,
-	6354,
-	6262,
-	4447,
-	3558,
-	4322,
-	4447,
-	4447,
-	4447,
-	4447,
-	4447,
-	4447,
-	4447,
-	4447,
-	4349,
-	4447,
-	3150,
-	4438,
-	3558,
-	3583,
-	3152,
-	3583,
-	3152,
-	4447,
-	3583,
-	3583,
-	4438,
-	3506,
-	4447,
-	3558,
-	4447,
-	4274,
-	4349,
-	4447,
-	4349,
-	3558,
-	4447,
-	4274,
-	4349,
-	4447,
-	4349,
-	3558,
-	4447,
-	4274,
-	4349,
-	4447,
-	4349,
-	3558,
-	4447,
-	4274,
-	4349,
-	4447,
-	4349,
-	4447,
-	4447,
-	4447,
-	4447,
-	4447,
-	3152,
-	4447,
-	4447,
-	4447,
-	4438,
-	3558,
-	4447,
-	3558,
-	4447,
-	4274,
-	4349,
-	4447,
-	4349,
-	6389,
-	4447,
+	4448,
+	4448,
+	4275,
+	4350,
+	4350,
+	3584,
+	4448,
+	4448,
+	3559,
+	4448,
+	4275,
+	4350,
+	4448,
+	4350,
+	3559,
+	4448,
+	4275,
+	4350,
+	4448,
+	4350,
+	3584,
+	4448,
+	3153,
+	4448,
+	3559,
+	4448,
+	4275,
+	4350,
+	4448,
+	4350,
+	4448,
+	4448,
+	4350,
+	4448,
+	4448,
+	3559,
+	4448,
+	4275,
+	4350,
+	4448,
+	4350,
+	6359,
+	6267,
+	4448,
+	4448,
+	1956,
+	4448,
+	4448,
+	3584,
+	4448,
+	4448,
+	4448,
+	4448,
+	4448,
+	3559,
+	4323,
+	4448,
+	4448,
+	4448,
+	4448,
+	4448,
+	4448,
+	4448,
+	4448,
+	4350,
+	4448,
+	3151,
+	4439,
+	3584,
+	3153,
+	3584,
+	3153,
+	4448,
+	3584,
+	3584,
+	4439,
+	3507,
+	4448,
+	3559,
+	4448,
+	4275,
+	4350,
+	4448,
+	4350,
+	3559,
+	4448,
+	4275,
+	4350,
+	4448,
+	4350,
+	3559,
+	4448,
+	4275,
+	4350,
+	4448,
+	4350,
+	3559,
+	4448,
+	4275,
+	4350,
+	4448,
+	4350,
+	4448,
+	4448,
+	4448,
+	4448,
+	4448,
+	4448,
+	4448,
+	4448,
+	3153,
+	4448,
+	4448,
+	4448,
+	4439,
+	3559,
+	4448,
+	3559,
+	4448,
+	4275,
+	4350,
+	4448,
+	4350,
+	6395,
+	4448,
 };
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	107,
+	125,
 	s_methodPointers,
 	0,
 	NULL,
